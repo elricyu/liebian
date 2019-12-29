@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /
+Disallow: /Application/
+Disallow: /Baby/
+Disallow: /Dang/
+Disallow: /File/
+Disallow: /Public/
+Disallow: /Uploads/

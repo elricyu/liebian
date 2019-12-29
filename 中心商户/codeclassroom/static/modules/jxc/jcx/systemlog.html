@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>系统日志</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	    <meta name="author" content="Muhammad Usman">	    
+	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+		<link href="css/layout.css" rel="stylesheet">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js"></script>			
+		<script src="../layer/layer.js"></script>
+		<script src="../laydate/laydate.js"></script>		
+		<script src="js/systemlog.js"></script>
+		<script src="js/Paginator.js"></script>
+		<style>
+			.head-left a:nth-of-type(6) li {
+			    background: #ecebfd;
+			    color: rgb(124, 113, 191);
+			    box-shadow: 5px 5px 4px #dbdbdb;
+			}
+			/*table tbody tr:hover{background-color:#C8E8FB;}*/ 
+			.table-hover3{
+				box-shadow: 4px 4px 4px #dbdbdb;
+				border-radius: 10px 10px 0 0;	
+				background: #FFFFFF;
+			}
+			.table-hover3 tbody tr td{
+				border: 0;
+				color:#666666;
+			}
+			.table th, .table td { 
+				text-align: center; 
+				height:38px;
+				
+			} 
+			.td{position: relative;}
+			.td-img1{height: 25px;}
+			.td-img2{
+				width: 100px;
+				height: 100px;
+				display:none;
+				position: absolute;
+				z-index: 100;
+				left: 80px;
+				top: -10px;
+			}
+			.forms{color: #999999;}
+			.forms span{font-weight: bold;}
+            .time-suo{
+			    width: 90px;
+			    height: 24px;
+			    border-radius: 14px;
+			    border: 0;
+			    box-shadow: 5px 5px 4px #dbdbdb;
+			    padding-left: 8px; 
+			    font-size: 12px;           	
+            }
+            .head-search1{margin-right: 10px;}
+            .head-search2{margin-right: 10px;}
+			.ss{
+				width:23px;
+				height: 23px;
+				margin-top: 2px;
+				border-radius: 0 14px 14px 0;
+				cursor: pointer;
+			}
+			.ss span{
+				width: 100%;
+			    height: 100%;
+			    display: block;
+			    background: url(img/ss.png) no-repeat center;
+			    background-size:100% 100% ;	
+			}
+			.ss span:hover{
+			    background: url(img/ss1.png) no-repeat center;
+			    background-size:100% 100% ;	
+			}
+            
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<!--导航-->
+			<div class="head huitapBox">
+				<ul class="head-left">
+					<a href="index.html"><li>商品类别</li></a>
+					<a href="supplier.html"><li>供应商</li></a>					
+					<a href="goods.html"><li>商品信息</li></a>
+					<a href="express.html"><li>物流设置</li></a>
+					<a href="storage.html"><li>出入库类别</li></a>
+					<a href="systemlog.html"><li>日志列表</li></a>
+				</ul>
+				<div class="ss fr">
+					<span class="xmjs" id="xmjs"></span>
+				</div>	
+			    <div class="head-search1 fr">
+			        <input id="suo" class="suo"  placeholder="日志内容查询" type="text">		
+			    </div> 
+			    <div class="head-search2 fr">
+			    	<p class="forms form-b fr">
+	                   &nbsp;&nbsp; <span>结束日期</span>&nbsp
+	                    <input class="laydate time-suo" id="timee"/>	             		
+	             	</p>
+	             	<p class="forms form-a fr">
+	                    <span>开始日期</span>&nbsp
+	                    <input class="laydate time-suo" id="times"/>	             		
+	             	</p>				    	
+			    </div>
+            </div>
+            <!--内容-->
+			<div class="content" style="padding-top: 10px;">			
+                <!-- 表格 -->
+                <table class="table table-hover3" style="font-size: 12px;">
+                    <thead>
+                        <tr style="background: #E8E5FF;">
+                            <th width="1%" style="border-radius: 10px 0px 0 0;"></th>
+                            <th width="11%">日期</th>
+                            <th width="11%">管理员</th>
+                            <th width="11%">登陆IP</th>
+                            <th style="border-radius: 0 10px 0 0;">日志内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table> 
+                <div class="paging">
+				    <span id="nums">共有条记录&nbsp;&nbsp;当前页/共页</span>
+                </div>
+                <div class="paging2">
+					<ul class="pagination2" id="pagination2"></ul>
+                </div>                   
+                
+			</div>       
+			</div>
+		</div>
+		<input class="sup-id"  style="display: none;"/>
+	</body>
+
+</html>

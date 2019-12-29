@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品信息</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	    <meta name="author" content="Muhammad Usman">	    
+	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+		<link href="css/layout.css" rel="stylesheet">
+		<link href="css/goods.css" rel="stylesheet">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js"></script>		
+		<script src="../layer/layer.js"></script>
+		<script src="js/goods.js"></script>				
+		<script src="js/Paginator.js"></script>				
+	</head>	
+	<body>
+		<div class="wrap">
+			<!--导航-->
+			<div class="head huitapBox">
+				<ul class="head-left">
+					<a href="index.html"><li>商品类别</li></a>
+					<a href="supplier.html"><li>供应商</li></a>					
+					<a href="goods.html"><li>商品信息</li></a>
+					<a href="express.html"><li>物流设置</li></a>
+					<a href="storage.html"><li>出入库类别</li></a>
+					<a href="systemlog.html"><li>日志列表</li></a>					
+				</ul>
+				<div class="ss fr">
+					<span  id="xmjs" ></span>
+				</div>	
+			    <div class="head-search1 fr">
+			    	<samp>商品名称&nbsp;</samp>
+			        <input id="suo" class="suo"  placeholder="商品名称查询" type="text">		
+			    </div>
+			    <div class="head-search3 fr">
+                    <samp>供应商&nbsp;</samp>
+                    <select data-rel="chosen" name="supplierid" id="supplierid" class="sele2 fr">
+                        <option value="" selected>请选择</option>
+                    </select>
+			    </div>
+			    <div class="head-search2 fr">
+                    <samp>商品类别&nbsp;</samp>
+                    <select data-rel="chosen" name="typeid" id="typeid" class="sele1 fr">
+                        <option value="" selected>请选择</option>
+                    </select>
+			    </div>			    
+            </div>
+            <!--内容-->
+			<div class="content" style="padding-top: 10px;">
+				<div class="button">
+					<p href="#" class="button-i fr" onclick="button()"/>添加商品</p>
+				</div>
+			    <table class="table table-hover2" style="font-size: 12px;">
+			        <thead>
+			            <tr style="background: #E8E5FF;">
+			                <th width="1%" style="border-radius: 8px 0px 0 0;"></th>
+			                <th width="12%">商品编号</th>
+			                <th width="10%">商品名称</th>
+			                <th width="7%">商品类别</th>
+			                <th width="5%">规格</th>
+			                <th width="5%">单位</th>
+			                <th width="9%">商品图片</th>
+			                <th width="9%">成本价</th>
+			                <th width="9%">采购价</th>
+			                <th width="9%">销售价</th>
+			                <th width="15" style="border-radius: 0 8px 0 0;">操作</th>
+			            </tr>
+			        </thead>
+			        <tbody>                             
+			        </tbody>
+			    </table>
+	            <div class="paging">
+				    <span id="nums">共有条记录&nbsp;&nbsp;当前页/共页</span>
+	            </div>
+	            <div class="paging2">
+					<ul class="pagination2" id="pagination2"></ul>
+                </div>   
+			</div>			    
+			</div>		
+		<input class="in" value="" style="display: none;"/>
+		</div>		
+	</body>	
+<script>
+
+</script>	
+	
+</html>

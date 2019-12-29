@@ -1,0 +1,63 @@
+.zuo{
+    background:#c5c4c0; margin-left:35%;
+}
+.you{
+    background: #c5c4c0;margin-left:2%
+}
+.tu_1{
+    width:500px;
+    height:600px;
+    position: fixed;
+    top:5%;
+    left:35%;
+    border: 1px solid #000000;
+    background:#FFFFFF;
+
+
+}
+.tu_1>img{
+    width:100%;
+    height:100%;
+}
+
+.tu_1>span{
+    position: absolute;
+    top:0;
+    right:0;
+    font-size: 40px;
+}
+.swper_css11{
+    width:100%;
+    height:85%;
+    margin-top:10%;
+
+}
+.dis_n{
+    display: none;
+}
+.dis_b{
+    display: block;
+}
+
+.notprint{
+    margin-left:85%;
+    width:60px;
+    background: #007AFF;
+    line-height: 30px;
+    text-align: center;
+    margin-top:5px;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+@media print {.notprint{display: none;}}
+#box{ margin:50px auto; width:540px; min-height:100px; background:#FF9}
+.ipt{
+    width:50px;
+    height:30px;
+    text-align: center;
+    line-height: 30;
+    margin-left:80%;
+    margin-top:5px;
+
+}

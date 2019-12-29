@@ -1,0 +1,7 @@
+这是使用datatable.js扩展的，文档可以百度
+
+datatable的路径根据自己实际情况来设置
+datatable.css也可以在datatable.js的最后面加上.addcss('css的路径','datatablecss');
+页面调用的js也可以单独写出来
+
+注意返回的json格式

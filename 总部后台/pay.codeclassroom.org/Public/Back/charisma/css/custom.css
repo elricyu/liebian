@@ -1,0 +1,51 @@
+html,body{
+	height: 100%;
+}
+.change{
+	height:85%;
+	margin: 0;
+}
+.form1{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.left1,.basic,.ente,.record{
+	margin: 5px 0 5px 0;
+	border:1px solid #999999;
+	border-radius: 6px;
+}
+.kongz{
+	padding:0 15px 0 15px;
+}
+.sele{
+	height:25px;
+	padding:0;
+	margin:0
+}
+.tab1 tbody td{
+	color:#34a6e7;
+}
+.inside{
+	padding: 0;
+	margin: 0;
+}
+.skip{
+	padding-top: 10px;
+}
+.text{
+	border:1px solid #999999;
+	border-radius: 6px;
+	resize: none;
+}
+.seach td{
+	padding:8px 4px 8px 0;
+}
+.colo{
+	color:#34a6e7;
+}
+.table-bordered th{
+	text-align: center;
+}
+.lj{
+	color:green;
+}

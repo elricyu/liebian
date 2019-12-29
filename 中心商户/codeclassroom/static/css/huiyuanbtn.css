@@ -1,0 +1,63 @@
+.qianziBtn{
+  background: #e8e5ff;
+  color:#7c72c1;
+  height: 25px;
+  line-height: 25px;
+  padding:0 20px;
+  border-radius:12px ;
+  display: inline-block;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.shenziBtn{
+  background: #7c72c1;
+  color:#fff;
+  height: 25px;
+  line-height: 25px;
+  padding:0 20px;
+  border-radius:12px ;
+  display: inline-block;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.borziBtn{
+  color:#7c72c1;
+  box-sizing: border-box;
+  height: 25px;
+  line-height: 25px;
+  padding:0 20px;
+  border-radius:12px ;
+  display: inline-block;
+  border: 1px solid #7c72c1;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.qianziBtn-mini{
+  background: #e8e5ff;
+  color:#7c72c1;
+  height: 18px;
+  line-height: 18px;
+  padding:0 15px;
+  border-radius:12px ;
+  display: inline-block;
+  font-size:12px ;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.shenziBtn-mini{
+  background: #7c72c1;
+  color:#fff;
+  height: 18px;
+  line-height: 18px;
+  padding:0 15px;
+  border-radius:12px ;
+  display: inline-block;
+  font-size:12px ;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.sousuok{
+  width: 145px;
+}
+.sousuok .el-input  .el-input__inner{
+  border-radius: 12px;
+  height: 25px;
+  line-height: 25px;
+  border: none;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}

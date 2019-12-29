@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>添加活动方案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+
+    <!-- The styles -->
+    <link href="__PUBLIC__/Back/charisma/css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/Back/charisma/css/charisma-app.css" rel="stylesheet">
+    <link href='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet'
+          media='print'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css'
+          rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/jquery.noty.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/noty_theme_default.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/elfinder.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/elfinder.theme.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/uploadify.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/animate.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="__PUBLIC__/Back/charisma/bower_components/jquery/jquery.min.js"></script>
+
+    <!-- jQuery -->
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="__PUBLIC__/Back/charisma/img/favicon.ico">
+</head>
+
+<body>
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo"
+                                                        src="__PUBLIC__/Back/charisma/img/logo20.png"
+                                                        class="hidden-xs"/>
+            <span>编程云</span></a>
+
+        <!-- user dropdown starts -->
+        <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-user"></i>
+                <span class="hidden-sm hidden-xs"><?php $name=$_SESSION['a_name']; echo $name; ?></span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="min-width: 120px">
+                <li><a href="../Index/loginout">注销</a></li>
+            </ul>
+        </div>
+        <!-- user dropdown ends -->
+    </div>
+</div>
+<!-- topbar ends -->
+<div class="ch-container">
+    <div class="row">
+
+        <!-- left menu starts -->
+        <!--引用公共的布局-->
+        <include file="Common:sidebar"/>
+        <!--/span-->
+        <!-- left menu ends -->
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well" data-original-title="">
+                            <h2><i class="glyphicon glyphicon-edit"></i> 添加活动方案</h2>
+
+                            <div class="box-icon">
+                                <a href="#" class="btn btn-setting btn-round btn-default"><i
+                                        class="glyphicon glyphicon-cog"></i></a>
+                                <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                <a href="#" class="btn btn-close btn-round btn-default"><i
+                                        class="glyphicon glyphicon-remove"></i></a>
+                            </div>
+                        </div>
+                        <div class="box-content">
+                            <form role="form" class="form-inline" action="{:U('add')}" method="post"
+                                  enctype="multipart/form-data">
+                                <div class="container-fluid">
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">活动名称： </label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                                       placeholder="活动名称" name="jc_name" style="width:200px;" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">活动标签：</label>
+                                                <div class="controls form-control"
+                                                     style="padding-top: 4px;padding-left:0;border: none">
+                                                    <input type="radio" name="type" value="1" checked> 主题活动
+                                                    <input type="radio" name="type" value="2"> 节日活动
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">活动类型：</label>
+                                                <div class="controls form-control"
+                                                     style="padding-top: 4px;padding-left:0;border: none">
+                                                    <input type="radio" name="hd_type" value="1" checked>砍价活动
+                                                    <input type="radio" name="hd_type" value="2"> 拼团活动
+                                                    <input type="radio" name="hd_type" value="3"> 促单(线上)
+                                                    <input type="radio" name="hd_type" value="4"> 促单(线上+线上)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>分享名称：</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                                       placeholder="分享名称" name="title" style="width:200px;" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>分享描述：</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                                       placeholder="分享描述" name="fx_describe" style="width:200px;" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>分享图片：</label>
+                                                <div class="controls form-control"
+                                                     style="padding-top: 4px;padding-left:0;border: none">
+                                                    <input type="file" name="thumb_img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>活动图片：</label>
+                                                <div class="controls form-control"
+                                                     style="padding-top: 4px;padding-left:0;border: none">
+                                                    <input name='img[]' type="file"  multiple>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom: 10px;">
+                                        <div class="col-sm-12">
+                                            <h4>活动描述：</h4>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <div class="form-group" style="width:100%;">
+                                                <textarea name="jc_describe" id="" cols="70" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <button type="submit" class="btn btn-default">添加</button>
+                                            <a class="btn btn-default" href="{:U('index')}">返回</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+
+            </div><!--/row-->
+
+            <!-- content ends -->
+        </div><!--/#content.col-md-0-->
+    </div><!--/fluid-row-->
+
+    <!-- Ad, you can remove it -->
+
+    <!--End mc_embed_signup-->
+</div>
+
+</div>
+<!-- Ad ends -->
+
+<hr>
+
+<include file="Common:foot"/>
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="__PUBLIC__/Back/charisma/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='__PUBLIC__/Back/charisma/bower_components/moment/min/moment.min.js'></script>
+<script src='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='__PUBLIC__/Back/charisma/js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="__PUBLIC__/Back/charisma/bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="__PUBLIC__/Back/charisma/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="__PUBLIC__/Back/charisma/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="__PUBLIC__/Back/charisma/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="__PUBLIC__/Back/charisma/js/charisma.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+
+
+    var shu = 2;
+
+    function addhuod(obj) {
+        if ($(obj).parents('.huodong').next().length > 0) {
+            return false;
+        }
+
+        if ($('.huodong').length < 10) {
+            $(obj).parents('.huodong').clone(true).appendTo('#huobox');
+            $(obj).parents('.huodong').next().find('.biaotia').val('');
+            $(obj).parents('.huodong').next().find('.shipina').val('');
+            $(obj).parents('.huodong').next().find('.yinpina').val('');
+            $(obj).parents('.huodong').next().find('.view').val('');
+
+            for (var j = 1; j < $('.huodong').length; j++) {
+                $('.huodong').eq(j).find('h4').html('游戏' + (Number(j) + 1));
+
+                $('.bianjiqi').eq(j).empty();
+                var num = Number(j) + 3;
+                var str = '<script id="editor' + num + '" type="text/plain" name="process[]" style="width:100%;"><\/script>';
+                $('.bianjiqi').eq(j).append(str);
+                UE.getEditor('editor' + num);
+
+            }
+
+            shu++;
+        }
+
+    }
+
+    function shanchuhd(obj) {
+        if ($('.huodong').length > 1) {
+            $(obj).parents('.huodong').remove();
+            shu--;
+        }
+        for (var j = 0; j < $('.huodong').length; j++) {
+            $('.huodong').eq(j).find('h4').html('游戏' + (Number(j) + 1))
+            acd.attr('id', 'editora' + (Number(j) + 1))
+        }
+    }
+
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+    var ue2 = UE.getEditor('editor1');
+    // var ue3 = UE.getEditor('editor3');
+    if ($('#editor4').length > 0) {
+        var ue4 = UE.getEditor('editor4');
+    }
+    if ($('#editor5').length > 0) {
+        var ue5 = UE.getEditor('editor5');
+    }
+    if ($('#editor6').length > 0) {
+        var ue6 = UE.getEditor('editor6');
+    }
+    if ($('#editor7').length > 0) {
+        var ue7 = UE.getEditor('editor7');
+    }
+    if ($('#editor8').length > 0) {
+        var ue8 = UE.getEditor('editor8');
+    }
+    if ($('#editor9').length > 0) {
+        var ue9 = UE.getEditor('editor9');
+    }
+    if ($('#editor10').length > 0) {
+        var ue10 = UE.getEditor('editor10');
+    }
+    if ($('#editor11').length > 0) {
+        var ue11 = UE.getEditor('editor11');
+    }
+    if ($('#editor12').length > 0) {
+        var ue12 = UE.getEditor('editor12');
+    }
+
+    function isFocus(e) {
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+
+    function setblur(e) {
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+
+    function insertHtml() {
+        var value = prompt('插入html代码', '');
+        UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+
+    function createEditor() {
+        enableBtn();
+        UE.getEditor('editor');
+    }
+
+    function getAllHtml() {
+        alert(UE.getEditor('editor').getAllHtml())
+    }
+
+    function getContent() {
+        var arr = [];
+        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getContent());
+        alert(arr.join("\n"));
+    }
+
+    function getPlainTxt() {
+        var arr = [];
+        arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getPlainTxt());
+        alert(arr.join('\n'))
+    }
+
+    function setContent(isAppendTo) {
+        var arr = [];
+        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+        alert(arr.join("\n"));
+    }
+
+    function setDisabled() {
+        UE.getEditor('editor').setDisabled('fullscreen');
+        disableBtn("enable");
+    }
+
+    function setEnabled() {
+        UE.getEditor('editor').setEnabled();
+        enableBtn();
+    }
+
+    function getText() {
+        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+        var range = UE.getEditor('editor').selection.getRange();
+        range.select();
+        var txt = UE.getEditor('editor').selection.getText();
+        alert(txt)
+    }
+
+    function getContentTxt() {
+        var arr = [];
+        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+        arr.push("编辑器的纯文本内容为：");
+        arr.push(UE.getEditor('editor').getContentTxt());
+        alert(arr.join("\n"));
+    }
+
+    function hasContent() {
+        var arr = [];
+        arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+        arr.push("判断结果为：");
+        arr.push(UE.getEditor('editor').hasContents());
+        alert(arr.join("\n"));
+    }
+
+    function setFocus() {
+        UE.getEditor('editor').focus();
+    }
+
+    function deleteEditor() {
+        disableBtn();
+        UE.getEditor('editor').destroy();
+    }
+
+    function disableBtn(str) {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++];) {
+            if (btn.id == str) {
+                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+            } else {
+                btn.setAttribute("disabled", "true");
+            }
+        }
+    }
+
+    function enableBtn() {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++];) {
+            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+        }
+    }
+
+    function getLocalData() {
+        alert(UE.getEditor('editor').execCommand("getlocaldata"));
+    }
+
+    function clearLocalData() {
+        UE.getEditor('editor').execCommand("clearlocaldata");
+        alert("已清空草稿箱")
+    }
+</script>
+</body>
+</html>
+

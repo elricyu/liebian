@@ -1,0 +1,9 @@
+总部后台--pay.codeclassroom.org    TP3.2
+
+中心商户--codeclassroom    为系统前端VUE脚手架   需composer install
+中心商户--hdapi.codeclassroom.org  TP5.0    系统API
+
+用户--activity_classroom  公众号H5系统前端VUE脚手架 需composer install
+用户--wx.codeclassroom.org   公众号主域名
+	activity为H5目录
+	pay 为商户号支付授权目录

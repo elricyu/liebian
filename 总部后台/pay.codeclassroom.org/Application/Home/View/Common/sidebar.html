@@ -1,0 +1,42 @@
+<!-- left menu starts -->
+<div class="col-sm-2 col-lg-2">
+    <div class="sidebar-nav">
+        <div class="nav-canvas">
+            <div class="nav-sm nav nav-stacked"></div>
+            <div>
+                <ul class="nav nav-pills nav-stacked main-menu">
+                    <volist name="pauth_info" id="p">
+                        <li class="accordion"><a href="#"><i
+                                class="glyphicon glyphicon-plus"></i><span>{$p.auth_name}</span></a>
+                            <ul class="nav nav-pills nav-stacked">
+                                <volist name="sauth_info" id='s'>
+                                    <?php
+							if($s[auth_pid] == $p[auth_id]){
+							if(isset($authid)){
+								if ($s[auth_id] == $authid){
+							?>
+                                    <li class="active"><a
+                                            href="__ROOT__/home/{$s.auth_c}/{$s.auth_a}">{$s.auth_name}</a></li>
+                                    <?php }else{?>
+                                    <li>
+                                        <a href="__ROOT__/home/<?php echo $s[auth_c].'/'.$s[auth_a]?>"> <?= $s[auth_name]?></a>
+                                    </li>
+                                    <?php }
+							}else{?>
+                                    <li>
+									<a href="__ROOT__/home/<?php echo $s[auth_c].'/'.$s[auth_a]?>"> <?= $s[auth_name]?></a>
+                                
+                                    </li>
+                                    <?php }}?>
+                                </volist>
+                            </ul>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+</div>
+<!--<?php if (isset($authid)) echo $authid?>-->
+<!--/span-->
+<!-- left menu ends -->

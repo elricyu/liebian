@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+<script type="text/javascript">
+	 (function(){
+		  let hd_id = $.cookie('hd_id')
+		  axios.post('https://hdapi.codeclassroom.org/index/hd/index',
+		  	qs.stringify({
+		  		 hd_id:hd_id,
+		  	}))
+		  	.then(res => {
+		  		 if(res.data.status == 1){
+		  			 document.title = res.data.data.hd_info.jc_name
+		  		 }else{
+						 document.title = '活动'
+					 }
+		  	})
+		  	.catch(err => {
+		  		console.log(err)
+		  	})
+	 }())
+</script>

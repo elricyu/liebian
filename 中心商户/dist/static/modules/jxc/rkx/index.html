@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品入库信息列表</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	    <meta name="author" content="Muhammad Usman">	    
+	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+		<link href="css/layout.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js"></script>		
+		<script src="../layer/layer.js"></script>
+		<script src="../laydate/laydate.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/Paginator.js" ></script>
+	</head>	
+	<body>
+		<div class="wrap">
+			<!--导航-->
+			<div class="head huitapBox">
+				<ul class="head-left">
+					<a href="index.html"><li>商品入库</li></a>
+				</ul>								
+	             <form role="form" class="form fr">
+	             	<p class="forms form-e fr">
+						<span class="xmjs" id="xmjs"></span>
+	             	</p>	             	
+	             	<p class="forms form-c fr">
+	                    &nbsp;&nbsp;<samp>采购人</samp>&nbsp;&nbsp;
+	                    <select data-rel="chosen" class="sele2 fr" id="person" name="person">
+	                        <option value="" selected>请选择</option>
+	                    </select>  	             		
+	             	</p>
+	             	<p class="forms form-d fr">
+	             		&nbsp;&nbsp;<samp>供应商</samp>&nbsp;&nbsp;
+	                    <select data-rel="chosen" class="sele2 fr" id="supplierid" name="supplierid">
+	                        <option value="" selected>请选择</option>
+	                    </select>	             		
+	             	</p>	             	
+	             	<p class="forms form-b fr">
+	                   &nbsp; &nbsp;<samp>结束日期</samp>&nbsp;&nbsp;
+	                    <input class="laydate suo" id="timee"/>	             		
+	             	</p>
+	             	<p class="forms form-a fr">
+	                    <samp>开始日期</samp>&nbsp;&nbsp;
+	                    <input class="laydate suo" id="times"/>	             		
+	             	</p>	             	
+	            </form> 
+            </div>
+            <!--内容-->
+			<div class="content" style="padding-top: 10px;">
+				<div class="button">
+					<p href="#" class="button-i fr" />添加入库单</p>
+				</div>
+                <!--表格-->
+                <table class="table table-hover">
+                    <thead>
+                    <tr style="background: #E8E5FF;">
+                        <th width="1%" style="border-radius: 10px 0px 0 0;"></th>
+                        <th width="12%">入库单号</th>
+                        <th width="12%">采购日期</th>
+                        <th width="12%">创建日期</th>
+                        <th width="12%">供货商</th>
+                        <th width="8%">入库金额</th>
+                        <th width="12%">业务类别</th>
+                        <th width="12%">采购人</th>
+                        <th style="border-radius: 0 10px 0 0;">操作</th>
+                    </tr>
+                    </thead>
+                	<tbody>                   
+                	</tbody>
+                </table>  
+	            <div class="paging">
+				    <span id="nums">共有条记录&nbsp;&nbsp;当前页/共页</span>
+	            </div> 
+                <div class="paging2">
+					<ul class="pagination2" id="pagination2"></ul>
+                </div>	            
+			</div>
+		 <input id="chaid" style="display: none;" />
+		</div>		
+	</body>
+</html>

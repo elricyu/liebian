@@ -1,0 +1,95 @@
+p,
+label {
+  padding: 0;
+  margin: 0;
+}
+.fonx {
+  font-size: 12px;
+  color: #999;
+}
+.youce .el-input {
+  display: block;
+  width: 70%;
+  min-width: 180px;
+  height: 38px;
+  line-height: 38px;
+  background: #7c72c1 ;
+  color: #fff;
+  margin: 0 auto ;
+  border-radius: 19px;
+  box-shadow: 0 2px 10px #d0d0d0;
+  overflow: hidden;
+}
+.youce .el-input input:focus {
+  outline: none;
+  border-color: #dcdfe6;
+}
+.zhuti {
+  padding: 20px;
+}
+.zhuti .biganniu {
+  display: block;
+  width: 70%;
+  min-width: 180px;
+  height: 38px;
+  line-height: 38px;
+  background: #7c72c1 ;
+  color: #fff;
+  margin: 0 auto 40px;
+  border: none;
+  box-shadow: 0 2px 10px #d0d0d0;
+}
+.zhuti .biganniu:hover {
+  background: #7c72c1 ;
+}
+.zhuti .biganniu:focus {
+  background: #7c72c1 ;
+}
+.zhuti .titlez {
+  background: #fff;
+  padding: 10px 18px 10px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px #cfcfcf;
+}
+.zhuti .titlez .title_t {
+  font-size: 18px;
+}
+.zhuti .titlez .land {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+.zhuti .titlez .land.lan {
+  background: #00cce4;
+}
+.zhuti .titlez .land.hong {
+  background: #ff797c;
+}
+.zhuti .titlez .tub {
+  width: 152px;
+  height: 100px;
+  margin: 0 auto;
+}
+.zhuti .titlez .zhuIco {
+  color: #00cce4;
+}
+.zhuti .titlez .zhuIco2 {
+  color: #ff797c;
+}
+.zhuti .titlez .zhuanBtn {
+  border-color: #00cce4;
+  color: #00cce4;
+  width: 78px;
+}
+.zhuti .titlez .zhuanBtn:nth-of-type(1) {
+  margin-bottom: 5px;
+}
+.zhuti .titlez .zhuanBtn2 {
+  border-color: #ff797c;
+  color: #ff797c;
+  width: 78px;
+}
+.zhuti .titlez .zhuanBtn2:nth-of-type(1) {
+  margin-bottom: 5px;
+}

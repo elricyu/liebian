@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>添加出入库类别</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+	<link href="../css/layout.css" rel="stylesheet">
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../../bootstrap/js/bootstrap.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>		
+	<script src="../../layer/layer.js"></script>			
+	    <style type="text/css">
+	    	a:hover{text-decoration:none;color:#FFFFFF;}
+	        .xuan{
+	            margin-right: 20px;
+	            font-size: 14px;
+	            height: 38px;
+	            border-color: #cccccc;
+	            border-radius: 5px;
+	        }
+	        form{
+	        	width: 100%;
+	        	padding-left: 20px;
+	        	padding-right: 20px;        	
+	        }
+	        table tr{
+	        	height: 50px;
+	        }
+	        table tr{
+	        	height: 50px;
+	        	text-align:center ;
+	        } 
+	        table tr input{
+	        	text-align:left ;
+	        } 
+	        .bottom{
+	        	width: 100%;
+	        	text-align: center;
+	        }
+	        .bottom-con {
+			    width: 100px;
+			    height: 30px;
+			    border-radius: 17px;
+			    background: #7D72C1;
+			    margin-top: 6px;
+			    text-align: center;
+			    line-height: 30px;
+			    border: none;
+			    box-shadow: 1px 1px 4px #999;
+			    -webkit-box-shadow: 1px 1px 4px #999;
+			    cursor: pointer;
+			    color: #FFFFFF;
+			    font-size: 15px;
+			    font-weight: bold;
+			    display: block;
+			    margin: auto;
+			} 
+			.required {
+			    color: red;
+			    display: inline-block;
+			    margin-right: 3px;
+			}
+			.usb{
+				display: block;
+			    float: left;
+			    height: 24px;
+			    border-radius: 14px;
+			    padding-left: 8px;
+			    border: 0;
+			    box-shadow: 5px 5px 4px #dbdbdb;
+			} 
+	        .form-controll{
+			    display: block;
+			    width: 70%;
+			    height: 30px;
+			    font-size: 14px;
+			    color: #555;
+			    background-image: none;
+			    border: 1px solid #ccc;
+			    border-radius: 10px;
+			    padding-left: 10px;
+			    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+			    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+			    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;		    
+            }		 								                       
+	    </style>
+</head>
+
+<body>
+
+    <form id="art_form" action="#" method="post" enctype="multipart/form-data">
+        <table style="margin-top: 10px;font-size: 12px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+            <tr>
+                <td style="color: red;">
+                    <span class="required">*</span>类型名称：
+                </td>
+                <td>
+                    <input placeholder="请输入类型名称" id="name" type="text" class="form-controll" name="name" required >
+                </td>
+            </tr>
+            <tr>
+                <td>选择类型：</td>
+                <td style="text-align: left;">
+                    <select name="type" id="typeid" style="width: 80px;" class="usb">
+                        <option value="1">出库</option>
+                        <option value="2">入库</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td >选择状态：</td>
+                <td style="text-align: left;">
+                    <select name="is_use"id="is_use" style="width: 80px;" class="usb">
+                        <option value="2">启用</option>
+                        <option value="1">禁用</option>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+		<div class="bottom">
+        	<a class="bottom-con" >添加</a>			
+		</div>
+    </form>
+</body>
+
+<script>
+	$(function() {
+		$(".bottom-con").click(function () {
+		   var name = $('#name').val();
+		   var typeid = $('#typeid').val();
+		   var is_use = $('#is_use').val();
+		   var arr = {'name':name,'type':typeid,'is_use':is_use};				
+	       var flag = true;
+	       if (name.length == 0) {
+	          alert('类型名称不能为空');
+	          flag = false;
+	          return false;
+	       }
+	       if (!flag) {
+	          return false;
+	       }
+		  var result=confirm("确认要添加吗");
+		  if(result){		  	
+		       $.ajax({
+			        "url":"http://www.s2.com/index/JxcOutStorage/store",
+			        "type":"post",
+			        "async":false,
+			        "data":{data:arr},
+			        "success":function(e){
+				    	if(e.status==2){
+				    		alert("添加成功");
+	                        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+	                        parent.layer.close(index);			    		
+				    		parent.getstorage();
+				    		parent.fenye();
+				    	}else if(e.status==1){
+				    		alert(e.msg);		            
+				        }
+				    }
+			      })
+	       }
+	     })
+	})
+</script>
+
+</html>
+

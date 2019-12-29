@@ -1,0 +1,115 @@
+
+.head-left li {
+    background: #ecebfd;
+    color: rgb(124, 113, 191);
+    box-shadow: 5px 5px 4px #dbdbdb;
+} 
+.form{
+	height: 40px;
+	margin-right: 0;
+	position: relative;
+	color: #999999;
+}
+.forms samp{line-height:40px;font-weight: bold;}
+.form-c {margin-right: 10px;}
+.form-e{
+	width: 25px;
+	height: 25px;
+	margin-top: 7px;
+	border-radius: 14px;
+	cursor: pointer;
+}
+.sele2 {
+    display: block;
+    float: right;
+    height: 24px;
+    border-radius: 14px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 7px;
+    color: #888888;
+    line-height:40px;
+    text-align: center;
+    border: 0;
+    box-shadow: 5px 5px 4px #dbdbdb;    
+}
+.button{
+	width:100% ;
+	height: 50px;
+}
+.button-i{
+    width: 140px;
+    height: 28px;
+    border-radius: 17px;
+    background: #7C72C1;
+    margin-left: 53px;
+    margin-top: 6px;
+    text-align: center;
+    line-height: 28px;
+    border: none;
+    box-shadow: 5px 5px 4px #dbdbdb;
+    -webkit-box-shadow: 5px 5px 4px #dbdbdb;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.table-hover{
+	box-shadow: 4px 4px 4px #dbdbdb;
+	border-radius: 10px 10px 0 0;	
+	background: #FFFFFF;
+}
+.table-hover tbody tr td{border: 0; color: #666666;}
+.table th, .table td { 
+	text-align: center; 
+	height:38px;
+} 
+.td{position: relative;}
+.td-img1{height: 25px;}
+.td-img2{
+	width: 100px;
+	height: 100px;
+	display:none;
+	position: absolute;
+	z-index: 100;
+	left: 80px;
+	top: -10px;
+}
+
+.xmjs {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url(../img/ss.png)no-repeat center;
+    background-size:100% 100% ;    
+}
+
+.xmjs:hover{
+    background: url(../img/ss1.png) no-repeat center;
+    background-size:100% 100% ;	
+}
+.xan{
+	width: 90px;
+	height: 20px;
+	margin: auto;
+}
+.xan span{
+	display: block;
+	width: 40px;
+	height: 20px;	
+}
+.xan span {
+	width: 40px;
+	height: 20px;
+	line-height: 20px;
+	background:#EDEDED ;
+	color: #999999;
+	display: block;
+	cursor:pointer;
+}
+.xan span:nth-child(1){border-radius: 8px 0 0 8px;float: left;}
+.xan span:nth-child(2){border-radius: 0 8px 8px 0;float: right;}
+
+.xan span:nth-child(1):hover {color: #FFFFFF;background:#00CCE4 ;}
+.xan span:nth-child(2):hover {color: #FFFFFF;background:#FF797C;}

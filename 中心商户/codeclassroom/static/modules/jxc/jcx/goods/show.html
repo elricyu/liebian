@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>查看商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+	<link href="../css/layout.css" rel="stylesheet">
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../../bootstrap/js/bootstrap.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>		
+	<script src="../../layer/layer.js"></script>			
+	<script src="../js/goods.js"></script>			
+	<script src="../js/Paginator.js"></script>			
+    <style type="text/css">
+    	html, body {
+		    height: 100%;
+		    background: #FFFFFF;
+		}
+        .xuan{
+            margin-right: 20px;
+            font-size: 14px;
+            height: 38px;
+            border-color: #cccccc;
+            border-radius: 5px;
+        }
+        form{
+        	width: 100%;
+        	padding-left: 20px;
+        	padding-right: 20px;        	
+        }
+        table tr{
+        	height: 50px;
+        	text-align:center ;
+        } 
+        table tr input{
+        	text-align:left ;
+        	
+        }
+        .form-control{
+        	border-radius:10px ;
+        	height: 30px;
+        }
+        table tr td select{
+		    display: block;
+		    float: left;
+		    height: 24px;
+		    border-radius: 14px;
+		    padding-left: 8px;
+		    border: 0;
+		    box-shadow: 5px 5px 4px #dbdbdb;        	
+        }
+        .required{
+	    color: red;
+	    display: inline-block;
+	    margin-right: 3px;
+		}
+		#showimg{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #AAAAAA;
+			border-radius:5px;
+			float: left;			
+		}
+		.form-controll {
+		    display: block;
+		    width: 100%;
+		    height: 110px;
+		    font-size: 14px;
+		    color: #555;
+		    background-image: none;
+		    border: 1px solid #ccc;
+		    border-radius: 10px;
+		    padding-left: 10px;
+		    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+		    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		} 		                          
+    </style>
+</head>
+
+<body>	
+    <form id="art_form">
+	    <table style="margin-top: 10px;font-size: 12px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+	        <tbody>
+	        <tr>
+	            <td style="color: red;">
+	                <span class="required">*</span>商品编号：
+	            </td>
+	            <td>
+	                <input value="自动生成" disabled type="text"  id="good_num" value="" class="form-control" >
+	            </td>
+	            <td style="color: red;">
+	                <span class="required">*</span>商品名称：
+	            </td>
+	            <td>
+	                <input name="good_name" disabled class="form-control" id="good_name" value="" maxlength="40"  type="text">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td style="color: red;">
+	                <span class="required">*</span>采购价格：
+	            </td>
+	            <td>
+	                <input required type="text" disabled name="purchase_price"id="purchase_price" value="" class="form-control" >
+	            </td>
+	            <td style="color: red;">
+	                <span class="required">*</span>销售价格：
+	            </td>
+	            <td>
+	                <input name="real_price" disabled required class="form-control"id="real_price" value="" maxlength="40"  type="text">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>成本价格：</td>
+	            <td>
+	                <input  type="text" name="cost_price" disabled id="cost_price"  value="" class="form-control" >
+	            </td>
+	            <td >商品类别：</td>
+	            <td style="text-align:left ">
+	                <select name="type_id" id="type_id" style="width: 200px;" disabled>
+	                    <option value="">无</option>	                   
+	                </select>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td >商品规格：</td>
+	            <td >
+	                <input name="spec" id="spec" maxlength="25" class="form-control" value="" type="text" disabled>
+	            </td>
+	            <td >供应商：</td>
+	            <td style="text-align:left ">
+	                <select name="supplier_id" id="supplier_id" style="width: 200px;" disabled>
+	                    <option value="">无</option>
+
+	                </select>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td >商品型号：</td>
+	            <td>
+	                <input name="model" id="model" maxlength="40" class="form-control"  value="" type="text" disabled>
+	            </td>
+	            <td >商品重量：</td>
+	            <td>
+	                <input name="weight" id="weight" maxlength="200" class="form-control" value="" type="text" disabled>
+	            </td>	            
+	        </tr>
+	        <tr>
+	            <td >计量单位：</td>
+	            <td>
+	                <input name="unit" id="unit" maxlength="30" class="form-control" value="" type="text" disabled>
+	            </td>
+	            <td >备注：</td>
+	            <td rowspan="2">
+	                <textarea name="notes" id="notes" maxlength="50" class="form-controll" value="" type="text" disabled></textarea>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>商品图片：</td>
+	            <td>
+	                <!--<input style="float: left;" type="file" disabled name="img_upload" id="img_upload" alt="商品图片" multiple="true">-->
+	                <img  src=""  alt="图片预览" id="showimg" onerror=this.src="../img/default2.jpg" >
+	            </td>
+	        </tr>
+	        </tbody>
+	    </table>
+    </form>
+
+
+<script>
+  
+$(function () {
+	var dd = parent.$('.in').val();	
+    $.ajax({
+    	"url": "http://www.s2.com/index/JxcGoods/edit",
+        "type": "post",        
+        "dataType": "json",	
+        "data":{id:dd},
+        success: function (e) {
+            $('#good_num').val(e.data.good_num);
+            $('#good_name').val(e.data.good_name);
+            $("#purchase_price").val(e.data.purchase_price);
+            $("#real_price").val(e.data.real_price);
+            $("#cost_price").val(e.data.cost_price);
+            var str = '';
+            var stl='';
+            for(i=0;i<e.good_types.length;i++){
+            	if(e.data.type_id == e.good_types[i].id){
+            		str += "<option value='"+e.good_types[i].id+"' selected >"+e.good_types[i].type_name+"</option>";
+            	}else{
+            		str += "<option value='"+e.good_types[i].id+"'  >"+e.good_types[i].type_name+"</option>";
+            	}
+            	
+            }
+            $('#type_id').append(str);
+            
+            for(i=0;i<e.suppliers.length;i++){
+            	if(e.data.supplier_id == e.suppliers[i].id){
+            		stl += "<option value='"+e.suppliers[i].id+"' selected >"+e.suppliers[i].supplier_name+"</option>";
+            	}else{
+            		stl += "<option value='"+e.suppliers[i].id+"'  >"+e.suppliers[i].supplier_name+"</option>";
+            	}
+            	
+            }
+            $('#supplier_id').append(stl);            
+            $('#spec').val(e.data.spec);
+            $("#model").val(e.data.model);
+            $("#weight").val(e.data.weight);
+            $("#unit").val(e.data.unit);
+            $('#notes').val(e.data.notes);
+            $('#showimg').attr('src',e.data.mini_imgpath);
+            
+      },
+      error:function(e){
+//   	console.log(e)
+      }
+  	})	
+})	
+		
+    //图片上传框值变化后触发上传
+    $("#img_upload").change(function(){
+        uploadImage();
+    });
+    function uploadImage() {
+        //  判断是否有选择上传文件
+        var imgPath = $("#img_upload").val();
+
+        //判断上传文件的后缀名
+        var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+        if (strExtension != 'jpg' && strExtension != 'jpeg' && strExtension != 'png') {
+            alert("请选择正确的图片文件");
+            return;
+        }
+        var formData = new FormData($('#art_form')[0]);
+
+        $.ajax({
+            type: "POST",
+            url: "{:U('imgupload')}",
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType : 'json',
+            success: function(data) {
+                $('#picmsg').html('');
+                $('#showimg').attr('src',data.mini_imgpath);
+                $('#imgpath').val(data.imgpath);
+                $('#mini_imgpath').val(data.mini_imgpath);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("上传失败，请检查网络后重试");
+            }
+        });
+    }
+</script>
+</body>
+</html>
+

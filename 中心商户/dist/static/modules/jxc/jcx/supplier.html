@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>供应商信息</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	    <meta name="author" content="Muhammad Usman">	    
+	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+		<link href="css/layout.css" rel="stylesheet">
+		<link href="css/supplier.css" rel="stylesheet">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js"></script>			
+		<script src="../layer/layer.js"></script>			
+		<script src="js/supplier.js"></script>			
+		<script src="js/Paginator.js"></script>			
+	</head>
+	<body>
+		<div class="wrap">
+			<!--导航-->
+			<div class="head huitapBox">
+				<ul class="head-left">
+					<a href="index.html"><li>商品类别</li></a>
+					<a href="supplier.html"><li>供应商</li></a>					
+					<a href="goods.html"><li>商品信息</li></a>
+					<a href="express.html"><li>物流设置</li></a>
+					<a href="storage.html"><li>出入库类别</li></a>
+					<a href="systemlog.html"><li>日志列表</li></a>						
+				</ul>								
+			    <div class="head-search1 fr">
+			        <input id="suo" class="suo"  placeholder="供应商查询" type="text">
+			        <span class="kuang">
+						<span class="xmjs" id="xmjs"></span>
+					</span>			
+			    </div>                      	
+            </div>
+            <!--内容-->
+			<div class="content" style="padding-top: 10px;">
+				<div class="button">
+					<p href="#" class="button-i fr"/>添加供应商</p>
+				</div>				
+                <!-- 表格 -->
+                <table class="table table-hover3" style="font-size: 12px;">
+                    <thead>
+                        <tr style="background: #E8E5FF;">
+                            <th width="1%" style="border-radius: 10px 0px 0 0;"></th>
+                            <th width="11%">供应商编号</th>
+                            <th width="11%">供应商名称</th>
+                            <th width="11%">供货商电话</th>
+                            <th width="11%">联系人</th>
+                            <th width="11%">联系人手机</th>
+                            <th width="15%">建档时间</th>
+                            <th width="15" style="border-radius: 0 10px 0 0;">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table> 
+                <div class="paging">
+				    <span id="nums">共有条记录&nbsp;&nbsp;当前页/共页</span>
+                </div>
+                <div class="paging2">
+					<ul class="pagination2" id="pagination2"></ul>
+                </div>                      
+			</div>       
+			</div>
+		</div>
+		<input class="sup-id"  style="display: none;"/>
+	</body>	
+</html>

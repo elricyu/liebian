@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>查看出库订单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+	<link href="css/layout.css" rel="stylesheet">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>		
+	<script src="../layer/layer.js"></script>	
+	<script src="js/showout.js"></script>
+    <style type="text/css">
+    	a:hover{text-decoration:none;color:#FFFFFF;}
+        .xuan{
+            margin-right: 20px;
+            font-size: 14px;
+            height: 38px;
+            border-color: #cccccc;
+            border-radius: 5px;
+        }
+        form{
+        	width: 100%;
+        	padding-left: 20px;
+        	padding-right: 20px;
+        	padding-bottom: 20px;        	
+        }
+        .table-hover tr td{
+        	height: 50px;
+        	text-align:center;
+        	border: 0;        	
+        } 
+        .table-hover  tr input{
+        	text-align:left ;
+        	margin: auto;
+        	border-radius: 8px;
+        }
+        input,select,textarea{
+        	border: 1px solid #dbdbdb;
+        }
+		.table-hover{
+			box-shadow: 4px 4px 4px #dbdbdb;
+			border-radius: 10px 10px 0 0;	
+		}
+		.table-hover thead tr th{color: #666666;text-align:center;}
+		.table-hover0 tbody tr td{border: 0;color: #6666666;}
+		.table-hover tbody tr td{border: 0;color: #6666666;}
+		.table-hover0 tbody tr td:nth-child(1),
+		.table-hover0 tbody tr td:nth-child(3),
+		.table-hover0 tbody tr td:nth-child(5),
+		.table-hover0 tbody tr td:nth-child(7){
+			width: 10%;
+		}
+		.table-hover0 tbody tr td:nth-child(2),
+		.table-hover0 tbody tr td:nth-child(4),
+		.table-hover0 tbody tr td:nth-child(6),
+		.table-hover0 tbody tr td:nth-child(8){
+			width: 15%;
+		}		
+		.table-hover0 tbody tr td input{
+			width: 100%;    
+			border: 1px solid #ccc;
+		    border-radius: 8px;
+		    padding-left: 10px;
+		}
+		.but{
+			width: 100%;
+			text-align: center;
+			
+		} 
+        .btn-tj{
+         	display: block;
+         	width: 120px;
+		    height: 30px;
+		    border-radius: 17px;
+		    background: #FF797C;
+		    margin-left: 53px;
+		    margin-top: 6px;
+		    text-align: center;
+		    line-height: 30px;
+		    border: none;
+		    box-shadow: 1px 1px 4px #999;
+		    -webkit-box-shadow: 1px 1px 4px #999;
+		    cursor: pointer;
+		    color: #FFFFFF;
+		    font-size: 15px;
+		    font-weight: bold;
+		    margin:0 auto;
+		    
+         }               
+    </style>
+</head>
+
+<body>
+    <div id="good_listdiv" onclick="cancle();" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.2); z-index: 998;display: none;">
+        <div id="popupDiv" style="position: absolute; width: 90%; height: 90%; background-color: white; position: absolute; left: 5%; top: 3%;">
+            <iframe id="list_good" frameborder="0" scrolling="no" src="goodslist.html" width="100%" height="100%" style="position: absolute;  border-radius: 3px;"></iframe>
+        </div>
+    </div>       
+    <form role="form" action="{:U('storeenter')}" method="post" >
+        <table class="table table-hover0">
+            <tbody>
+                <tr>
+                    <td ><label>采购日期：</label></td>
+                    <td>
+                        <span id="date"></span>
+                    </td>
+                    <td><label>出库人：</label></td>
+                    <td>
+                    	<span id="person"></span>
+                    </td>
+                    <td><label>制单人：</label></td>
+                    <td >
+                        <span id="user_name"></span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+	            <tr>
+	                <td><label>业务类别：</label></td>
+	                <td>
+						<input id="order_status" disabled></input>
+	                </td>
+	                <td><label>货运公司：</label></td>
+	                <td>
+						<input id="express_name" disabled></input>
+	                </td>
+	                <td><label>货运费用：</label></td>
+	                <td>
+	                    <input id="express_price" disabled></input>
+	                </td>
+	                <td><label>货运单号：</label></td>
+	                <td>
+	                    <input id="express_num" disabled></input>
+	                </td>	
+	            </tr>
+	            <tr>
+	                <td><label>备注：</label></td>
+	                <td colspan="7">
+	                   <input id="notes" disabled></input>
+	                </td>
+	            </tr>
+            </tbody>
+        </table>
+ 
+        <table class="table table-hover" id="goodstable">
+            <thead>
+                <tr style="background: #E8E5FF;">
+                    <th style="border-radius: 10px 0px 0 0;">商品编号</th>
+                    <th>商品名称</th>
+                    <th>图片</th>
+                    <th>规格</th>
+                    <th>单位</th>
+                    <th>数量</th>
+                    <th>价格</th>
+                    <th>合计</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>合计</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><span id="allnum"></span></td>
+                    <td><span id="all_purchase_price"></span></td>
+                    <td><span id="sum_price"></span><input type="hidden" name="sumprice" value=""></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <a type="submit" class="btn-tj" onclick="del()">作废</a>
+    </form>
+
+</body>
+</html>
+

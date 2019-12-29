@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>新活动方案列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+
+    <!-- The styles -->
+    <link href="__PUBLIC__/Back/charisma/css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/Back/charisma/css/charisma-app.css" rel="stylesheet">
+    <link href='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/jquery.noty.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/noty_theme_default.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/elfinder.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/elfinder.theme.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/uploadify.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/animate.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="__PUBLIC__/Back/charisma/bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="__PUBLIC__/Back/charisma/img/favicon.ico">
+    <!--多功能插件 start-->
+    <script src="__PUBLIC__/layui/layui.js"></script>
+    <!--多功能插件 end-->
+</head>
+
+<body>
+<script>
+    //日期选择权
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        var start = {
+            min:  '2000-06-16 23:59:59'
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+        var end = {
+            min:  '2000-06-16 23:59:59'
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+</script>
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="__PUBLIC__/Back/charisma/img/logo20.png" class="hidden-xs"/>
+            <span>编程云</span></a>
+
+        <!-- user dropdown starts -->
+        <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-user"></i>
+                <volist>
+                    <span class="hidden-sm hidden-xs"><?php $name=session('a_name'); echo $name; ?></span>
+                </volist>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="min-width: 120px">
+                <li><a href="../Index/loginout">注销</a></li>
+            </ul>
+        </div>
+        <!-- user dropdown ends -->
+    </div>
+</div>
+<!-- topbar ends -->
+<div class="ch-container">
+    <div class="row">
+
+        <!-- left menu starts -->
+        <!--引用公共的布局-->
+        <include file="Common:sidebar"/>
+        <!--/span-->
+        <!-- left menu ends -->
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well" data-original-title="">
+                            <h2><i class="glyphicon glyphicon-star-empty"></i> 活动方案列表</h2>
+
+                            <div class="box-icon">
+                                <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                <a href="#" class="btn btn-close btn-round btn-default"><i
+                                        class="glyphicon glyphicon-remove"></i></a>
+                            </div>
+                        </div>
+                        <!--内容-->
+                        <div style="margin: 10px 15px 0 15px">
+                            <div style="color: #39A8E8;font-size: 18px;height: 30px;">
+                                <a class="label-warning label label-default" href="{:U('add')}?mian=2" style="float: right">
+                                    <i class="glyphicon icon-white">添加活动方案</i>
+                                </a>
+                            </div>
+                            <form role="form" action="{:U('index')}" method="get" enctype="multipart/form-data" style="position: relative;">
+                                <label>开始日期：</label>
+                                <input type="text" name="time_s" placeholder="" value="{$ar['time_s']}" id="LAY_demorange_s" style="width:85px;" >&nbsp;&nbsp;
+                                <label>结束日期：</label>
+                                <input type="text" name="time_e" placeholder="" value="{$ar['time_e']}" id="LAY_demorange_e" style="width:85px;" >&nbsp;&nbsp;
+
+                                <input type="text" name="set" value="{$ar.set}" placeholder="活动标题" style="width: 150px">&nbsp;&nbsp;
+                                <input type="image" src="__PUBLIC__/img/chaxun.png" style="vertical-align:middle;"/>
+                            </form>
+                        </div>
+                        <div class="box-content">
+                            <table class="table table-striped table-bordered">
+
+                                <thead>
+                                <tr>
+                                    <th width=3% >序号</th>
+                                    <th width=10% >标题</th>
+                                    <th width=10% >分享图</th>
+                                    <th width=9% >添加时间</th>
+                                    <th width=10% >操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <volist name="data" id="item" key="k">
+                                        <tr>
+                                            <td>{$k}</td>
+                                            <td class="center"><a href="{:U('details')}?id={$item.id}">{$item.jc_name}</a></td>
+                                            <td class="center" >
+												<img src="{$item.img}" style="width: 50px;height: 50px;" alt="">
+											</td>
+                                            <td class="center">{$item.create_time}</td>
+                                            <td class="center">
+                                                <a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="del({$item.id},this)">删除</a>
+                                            </td>
+                                        </tr>
+                                    </volist>
+                                </tbody>
+                            </table>
+                            {$page}
+                        </div>
+                        <!--内容-->
+                    </div>
+                </div>
+            </div><!--/row-->
+            <!-- content ends -->
+        </div><!--/#content.col-md-0-->
+    </div><!--/fluid-row-->
+
+    <hr>
+</div>
+
+
+<script src="__PUBLIC__/Back/charisma/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='__PUBLIC__/Back/charisma/bower_components/moment/min/moment.min.js'></script>
+<script src='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='__PUBLIC__/Back/charisma/js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="__PUBLIC__/Back/charisma/bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="__PUBLIC__/Back/charisma/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="__PUBLIC__/Back/charisma/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="__PUBLIC__/Back/charisma/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="__PUBLIC__/Back/charisma/js/charisma.js"></script>
+
+<script>
+    function del(id,obj){
+        var result=confirm("确认要删除吗");
+        if(result){
+            $.ajax({
+                url:"{:U('del')}",
+                type:"post",
+                async:false,
+                data:{"id":id},
+                success:function(e){
+                    if(e.status == 1){
+                        obj.parentNode.parentNode.remove();
+                    }
+                }
+            })
+        }
+    }
+	function audit(id,obj){
+		var result=confirm("是否审核通过");
+		if(result){
+			$.ajax({
+				url:"{:U('audit')}",
+				type:"post",
+				async:false,
+				data:{"id":id},
+				success:function(e){
+					if(e.status == 1){
+						alert(e.msg);
+						location.reload();
+					}
+				}
+			})
+		}
+	}
+</script>
+</body>
+</html>

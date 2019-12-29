@@ -1,0 +1,95 @@
+table tbody tr:hover{background-color:#C8E8FB;} 
+.head-left a:nth-of-type(2) li {
+    background: #ecebfd;
+    color: rgb(124, 113, 191);
+    box-shadow: 5px 5px 4px #dbdbdb;
+}
+.head-search2 {
+    height: 28px;
+    margin-right: 10px;
+    font-weight: bold;
+    position: relative;
+    color: #1E1E1E;
+}
+.head-search2 span {
+    line-height: 28px;
+    color: #999999;
+}
+.sele2{
+    display: block;
+    float: right;
+    height: 24px;
+    border-radius: 14px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #888888;
+    border:0;
+    box-shadow: 5px 5px 4px #dbdbdb;
+}
+.head-search3 {
+    height: 28px;
+    margin-right: 10px;
+    font-weight: bold;
+    position: relative;
+    color: #1E1E1E;
+}
+
+.head-search4 {
+    height: 28px;
+    font-weight: bold;
+    position: relative;
+    color: #1E1E1E;
+}
+.forms span{color: #999999;}
+.time-suo {
+    width: 90px;
+    height: 24px;
+    border-radius: 14px;
+    border: 1px solid #FFFFFF;
+    padding-left: 8px;
+    box-shadow: 5px 5px 4px #dbdbdb;
+}
+.table th, .table td { 
+	text-align: center; 
+	height:38px;
+}
+.table-hover1{
+	box-shadow: 2px 2px 4px #dbdbdb;
+	border-radius: 10px 10px 0 0;	
+	background: #FFFFFF;	
+}
+.table-hover1 tbody tr td{border: 0;color: #666666;}
+
+@media screen and (max-width: 1100px) {
+    .head {
+        height: 80px;
+    }
+    .head-left {
+        padding-top: 40px;
+    }
+    .head-right {
+        padding-top:0;
+    }    
+    .head-search1{
+    	margin-top: -35px;
+
+    }    
+}
+.ss{
+	width:23px;
+	height: 23px;
+	margin-top: 2px;
+	border-radius: 0 14px 14px 0;
+	cursor: pointer;
+}
+.ss span{
+	width: 100%;
+    height: 100%;
+    display: block;
+    background: url(../img/ss.png) no-repeat center;
+    background-size:100% 100% ;	
+}
+.ss span:hover{
+    background: url(../img/ss1.png) no-repeat center;
+    background-size:100% 100% ;	
+}

@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+label{
+    margin: 0;
+    padding: 0;
+}
+.daoshu{
+    width:auto;
+    padding-left:5px;
+    padding-right: 5px;
+    height: 20px;
+    border-radius: 3px;
+    line-height: 20px;
+    text-align: center;
+    background: #81b943;
+    float: left;
+    color: #fff;
+    border: none;
+}
+.floaR{
+    float: right;
+}
+.bgO{
+    background:#de5804 ;
+}
+.searchS{
+    width:120px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+

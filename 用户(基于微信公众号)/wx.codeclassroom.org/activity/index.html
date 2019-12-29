@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title></title><link href=css/app.16f47b5a.css rel=preload as=style><link href=css/chunk-vendors.7490c12b.css rel=preload as=style><link href=js/app.1174d231.js rel=preload as=script><link href=js/chunk-vendors.c619fab1.js rel=preload as=script><link href=css/chunk-vendors.7490c12b.css rel=stylesheet><link href=css/app.16f47b5a.css rel=stylesheet></head><body><div id=app></div><script src=js/chunk-vendors.c619fab1.js></script><script src=js/app.1174d231.js></script></body></html><script>(function(){
+		  let hd_id = $.cookie('hd_id')
+		  axios.post('https://hdapi.codeclassroom.org/index/hd/index',
+		  	qs.stringify({
+		  		 hd_id:hd_id,
+		  	}))
+		  	.then(res => {
+		  		 if(res.data.status == 1){
+		  			 document.title = res.data.data.hd_info.jc_name
+		  		 }else{
+						 document.title = '活动'
+					 }
+		  	})
+		  	.catch(err => {
+		  		console.log(err)
+		  	})
+	 }())</script>

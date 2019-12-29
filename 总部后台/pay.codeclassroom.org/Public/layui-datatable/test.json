@@ -1,0 +1,49 @@
+{
+  "data": [
+      {
+      "id": "24",
+      "good_num": "SP2018010813233305028",
+      "good_name": "\u8361\u8361",
+      "mini_imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/Mini\/5a53010adc9bd.jpg",
+      "imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/2018-01-08\/5a53010adc9bd.jpg",
+      "spec": "",
+      "unit": "",
+      "purchase_price": "33.00",
+      "prev_purprice": 0,
+      "stock": 0
+    }, {
+      "id": "23",
+      "good_num": "SP2018010813154801588",
+      "good_name": "\u6d4b\u8bd5\u5546\u54c1003",
+      "mini_imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/Mini\/5a53028740fc2.jpg",
+      "imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/2018-01-08\/5a53028740fc2.jpg",
+      "spec": "",
+      "unit": "",
+      "purchase_price": "22.00",
+      "prev_purprice": 0,
+      "stock": 0
+    }, {
+      "id": "22",
+      "good_num": "SP2018010811274801235",
+      "good_name": "\u6d4b\u8bd5\u5546\u54c1002",
+      "mini_imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/Mini\/5a53028d12d93.jpg",
+      "imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/2018-01-08\/5a53028d12d93.jpg",
+      "spec": "sadf",
+      "unit": "\u7684",
+      "purchase_price": "33.00",
+      "prev_purprice": "166.00",
+      "stock": "20"
+    }, {
+      "id": "21",
+      "good_num": "SP2018010811220408619",
+      "good_name": "\u6d4b\u8bd5\u5546\u54c1001",
+      "mini_imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/Mini\/5a53029210619.jpg",
+      "imgpath": "http:\/\/www.cc.com\/Uploads\/JxcGoodImg\/2018-01-08\/5a53029210619.jpg",
+      "spec": "60\u5bf8",
+      "unit": "\u53f0",
+      "purchase_price": "15.00",
+      "prev_purprice": "144.00",
+      "stock": "30"
+    }
+  ]
+}

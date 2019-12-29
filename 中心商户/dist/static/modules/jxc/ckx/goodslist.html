@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>选择商品列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+	<link href="css/layout.css" rel="stylesheet">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>		
+	<script src="../layer/layer.js"></script>	
+	<script src="js/goodslist.js"></script>
+	<script src="js/Paginator.js" ></script>		
+    <style>
+    	.warp{
+    		width: 100%;
+    		height: 100%;
+			font-size: 12px; 
+			position: relative;   		
+    	}
+        .pagination{
+        	padding: 0;
+			border: 1px solid #dbdbdb;
+        }
+        .head{
+        	width: 100%;
+        	font-size: 12px;
+        	position: relative;
+        	background: #7c73c4;
+        }
+		.table-hover{
+			box-shadow: 4px 4px 4px #dbdbdb;
+			border-radius: 10px 10px 0 0;			
+		}
+		.table-hover thead tr th{text-align: center;} 
+		.table-hover tbody tr td{
+			border: 0;
+			text-align: center;
+			color: #6666666;
+		}     
+        .row{
+        	width: 100%;
+        	height: 100px;
+        	margin: 50px 15px 0 15px;
+        	font-size: 12px;
+        	position: relative;      	
+        }
+        .paging{
+        	width: 100%;      	
+        }
+        .form{
+        	position: absolute;
+        	left: 50%;       	
+        }
+        .form div{
+        	position: relative;
+        	right: 50%;
+        }
+        .box-content{
+        	padding-left: 20px;
+			padding-right: 20px; 
+        }
+		.head-search1{
+			height: 28px; 
+			font-size: 13px;
+			font-weight:bold;
+			position: relative;
+			color: #1E1E1E;
+		}
+		.head-search1 span{line-height: 28px;color: #FFFFFF;}
+		.head-search2{
+			height: 28px; 
+			font-size: 13px;
+			font-weight:bold;
+			position: relative;
+			color: #1E1E1E;
+		}
+		.head-search2 span{line-height: 28px;color: #FFFFFF;}
+		.sele1{
+			display:block;
+			float:right;
+			height: 24px;
+			border: 0;
+			border-radius: 14px;
+			padding-left: 8px;
+			color: #888888;
+		}		
+
+        .head-search3{
+        	position: relative;
+        }
+		.head-search3 span{
+			line-height: 28px;
+			margin-left: 10px;
+			font-size: 13px;
+			font-weight:bold;
+			position: relative;
+			color: #FFFFFF;	
+		}		
+        .suo{width: 140px;}
+		.sele2{
+			display:block;
+			float:right;
+			height: 24px;
+			border: 0;
+			border-radius: 14px;
+			padding-left: 8px;
+			color: #888888;
+		}                
+        .button-a{
+        	position: absolute;
+        	left: 50%;
+        }
+	    .button-a a{
+	     	display: block;
+	     	width: 120px;
+		    height: 30px;
+		    border-radius: 17px;
+		    background: #7c73c4;
+		    float: left;
+		    margin-left: 10px;
+		    text-align: center;
+		    line-height: 30px;
+		    border: none;
+		    box-shadow: 1px 1px 4px #999;
+		    -webkit-box-shadow: 1px 1px 4px #999;
+		    cursor: pointer;
+		    color: #FFFFFF;
+		    font-size: 15px;
+		    font-weight: bold;
+		    position: relative;
+			right: 50%;
+	     } 		 
+		.suos{
+		    width: 80px;
+		    height: 24px;
+		    border-radius: 14px;
+		    border: 0;
+		    padding-left: 5px;
+		}
+		.ss{
+			width:25px;
+			height: 25px;
+			margin-top: 2px;
+			margin-left: 10px;
+			border-radius: 0 14px 14px 0;
+			cursor: pointer;
+		}
+		.ss span{
+			width: 100%;
+		    height: 100%;
+		    display: block;
+		    background: url(img/ss.png) no-repeat center;
+		    background-size:100% 100% ;	
+		}
+		.ss span:hover{
+			width: 100%;
+		    height: 100%;
+		    display: block;
+		    background: url(img/ss11.png) no-repeat center;
+		    background-size:100% 100% ;	
+		}					        
+    </style>
+</head>
+
+<body>
+	<div class="warp">
+    <!--内容-->
+    <div class="head">
+        <div class="form"  style="font-size: 12px;">
+		    <div class="head-search1 fl">
+                <span>商品类别</span>&nbsp;&nbsp;
+                <select data-rel="chosen" name="typeid" id="typeid" class="sele2 fr">
+                    <option value="" selected>请选择</option>
+                    <foreach name="suppliers" item="v" key="k">
+                    </foreach>
+                </select>
+		    </div>		    
+		    <div class="head-search2 fl">
+                <span>供应商</span>&nbsp;&nbsp;
+                <select data-rel="chosen" name="supplierid" id="supplierid" class="sele1 fr">
+                    <option value="" selected>请选择</option>
+                    <foreach name="suppliers" item="v" key="k">
+                    </foreach>
+                </select>
+		    </div>
+		    <div class="head-search3 fl">
+		    	<span>商品名称</span>&nbsp;&nbsp;
+		        <input id="suo" class="suos" placeholder="商品名称查询" type="text">		
+		    </div>		    
+		    <div class="ss fl">
+				<span class="xmjs" id="xmjs"></span>
+			</div>	
+        </div>
+    </div>
+    <div class="box-content">
+        <table class="table table-hover" id="good_list" style="font-size: 12px;text-align: center">
+            <thead>
+                <tr style="background: #E8E5FF;">
+                    <th width=1%  style="border-radius: 10px 0px 0 0;"><input type="checkbox" id="selall" class="all" ></th>
+                    <th width=8%>商品编号</th>
+                    <th width=8%>商品名称</th>
+                    <th width=8%>商品图片</th>
+                    <th width=5%>规格</th>
+                    <th width=5%>单位</th>
+                    <th width=8%>销售价格</th>
+                    <th width=8%>采购价</th>
+                    <th width=8%>上次采购价</th>
+                    <th width=8% style="border-radius: 0 10px 0 0;">可用库存</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>             
+        </table>
+        <div class="paging">
+		    <span id="nums">共有条记录&nbsp;&nbsp;当前页/共页</span>
+        </div>
+        <div class="paging2">
+			<ul class="pagination2" id="pagination2"></ul>
+        </div>         
+        <div class="row">
+            <div class="button-a" style="vertical-align: bottom">
+                <a href="javascript:void(0)" onclick="sendgoods(1)">添加商品</a>
+                <a href="javascript:void(0)" onclick="sendgoods(2)">添加并继续</a>
+                <a href="javascript:void(0)" onclick="closelist()">退出</a>
+            </div>
+    </div>
+    <!--内容-->
+
+</div>
+</div>
+</div>
+</body>
+</html>

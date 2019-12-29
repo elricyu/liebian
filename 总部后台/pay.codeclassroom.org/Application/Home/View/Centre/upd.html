@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>添加中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+
+    <!-- The styles -->
+    <link href="__PUBLIC__/Back/charisma/css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/Back/charisma/css/charisma-app.css" rel="stylesheet">
+    <link href='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/jquery.noty.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/noty_theme_default.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/elfinder.min.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/elfinder.theme.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/uploadify.css' rel='stylesheet'>
+    <link href='__PUBLIC__/Back/charisma/css/animate.min.css' rel='stylesheet'>
+    <!-- jQuery -->
+    <script src="__PUBLIC__/Back/charisma/bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="__PUBLIC__/Back/charisma/img/favicon.ico">
+    <script src="__PUBLIC__/layui/layui.js"></script>
+    <style type="text/css">
+        .xuan{
+            margin-right: 20px;
+            font-size: 14px;
+            height: 38px;
+            border-color: #cccccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<!--<button class="layui-btn site-demo-layer" data-type="confirmTrans">配置一个透明的询问框</button>-->
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="__PUBLIC__/Back/charisma/img/logo20.png" class="hidden-xs"/>
+            <span>编程云</span></a>
+
+        <!-- user dropdown starts -->
+        <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-user"></i>
+                    <span class="hidden-sm hidden-xs"><?php $name=$_SESSION['a_name']; echo $name; ?></span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="min-width: 120px">
+                <li><a href="../Index/loginout">注销</a></li>
+            </ul>
+        </div>
+        <!-- user dropdown ends -->
+    </div>
+</div>
+<!-- topbar ends -->
+<div class="ch-container">
+    <div class="row">
+
+        <!-- left menu starts -->
+        <!--引用公共的布局-->
+        <include file="Common:sidebar"/>
+        <!--/span-->
+        <!-- left menu ends -->
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i> 添加中心</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i
+                            class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <form role="form" action="{:U('upd')}" method="post" enctype="multipart/form-data" onsubmit="return check()">
+                    <table width="100%">
+                        <tr >
+                            <td width="10%">
+                                <label >中心名称：</label>
+                            </td>
+                            <td colspan = "2"  >
+								<input type="text" class="form-control" placeholder="中心名称" value="{$ar.centre}" name="centre" style="width:350px;" required>
+                                <input type="hidden" name="centre_id" value="{$ar.centre_id}" />
+                            </td>
+                        </tr>
+                        <tr>
+                             <tr>
+                                <td>
+                                    <label>中心地址：</label>
+                                </td>
+                                <td width="400">
+                                    <!-- 三级联动地址 -->
+                                    <div style="float:left;">
+                                        <select class="xuan" id="coun" onchange="sel_sheng()" name="s_province">
+                                            <option value="">请选择省</option>
+                                            <volist name="guo" id="val"  >
+                                                <option value="{$val.REGION_ID}" <if condition="$ar.sid == $val.REGION_ID ">selected="selected"</if>>{$val.REGION_NAME}</option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                    <div  style="float:left;">
+                                        <select class="xuan" id="sheng" onchange="sel_shi()" name="s_city">
+                            				<option value=""></option>
+                            				<volist name="shi" id="v">
+                            					<option value="{$v.REGION_ID}" <if condition="$ar.shi_id == $v.REGION_ID ">selected="selected"</if>>{$v.REGION_NAME}</option>
+                            				</volist>
+                                        </select>
+                                    </div>
+                                    <div  style="float:left;">
+                                        <select class="xuan" id="qu" name="s_county">
+                                            <option value="">区</option>
+                            				<volist name="qu" id='s'>
+                            					<option value="{$s.REGION_ID}" <if condition="$ar.qu_id == $s.REGION_ID ">selected="selected"</if>>{$s.REGION_NAME}</option>
+                            				</volist>
+                                        </select>
+                                    </div>
+                                    <!-- 三级联动地址  end-->
+                                    <div class="form-group" style="float:left; margin-left:10px">
+                                        <input type="text" class="form-control" value="{$ar.site}" name="site" style="width:600px;">
+                                    </div>
+                                </td>
+                            </tr>
+						<tr >
+						    <td width="10%">
+						        <label >姓名：</label>
+						    </td>
+						    <td colspan = "2"  >
+								<input type="text" class="form-control" placeholder="联系人" name="l_name" value="{$ar.l_name}" style="width:350px;" required>
+						        <input type="hidden" name="old_name" value="{$ar.l_name}" />
+						    </td>
+						</tr>
+						<tr >
+						    <td width="10%">
+						        <label >电话：</label>
+						    </td>
+						    <td colspan = "2"  >
+								<input type="text" class="form-control" placeholder="联系人电话" value="{$ar.l_phone}" name="l_phone" style="width:350px;" required>
+						        <input type="hidden" name="old_phone" value="{$ar.l_phone}" id="" value="" />
+						    </td>
+						</tr>
+						<tr >
+						    <td width="10%">
+						        <label >初始密码：</label>
+						    </td>
+						    <td colspan = "2"  >
+						        <input type="text" class="form-control" placeholder="初始密码" style="width:350px;" value="gym123456" disabled="disabled">
+						    </td>
+						</tr>
+                    </table>
+                    <button type="submit" class="btn btn-default" >修改</button>
+                    <a class="btn btn-default" href="{:U('index')}">返回</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+</div><!--/row-->
+
+    <!-- content ends -->
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+    <!-- Ad, you can remove it -->
+
+            <!--End mc_embed_signup-->
+        </div>
+
+    </div>
+    <!-- Ad ends -->
+
+    <hr>
+
+ <!--<footer class="row">
+        <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="http://usman.it" target="_blank">Muhammad
+                Usman</a> 2012 - 2015</p>
+
+        <p class="col-md-3 col-sm-3 col-xs-12 powered-by">Powered by: <a
+                href="http://usman.it/free-responsive-admin-template">Charisma</a></p>
+    </footer>-->
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="__PUBLIC__/Back/charisma/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='__PUBLIC__/Back/charisma/bower_components/moment/min/moment.min.js'></script>
+<script src='__PUBLIC__/Back/charisma/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='__PUBLIC__/Back/charisma/js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="__PUBLIC__/Back/charisma/bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="__PUBLIC__/Back/charisma/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="__PUBLIC__/Back/charisma/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="__PUBLIC__/Back/charisma/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="__PUBLIC__/Back/charisma/js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="__PUBLIC__/Back/charisma/js/charisma.js"></script>
+</body>
+<script>
+    //三级联动 start
+    function sel_sheng(){
+        var coun=$("#coun").val();
+        $.ajax({
+            url:"{:U('sel_coun')}",
+            type:"post",
+            data:{"coun":coun},
+            success:function(msg){
+                var o=eval(msg);
+                var v1=document.getElementById("sheng");
+                v1.options.length=1;
+                for(a in o){
+                    var op1=document.createElement("option");
+                    op1.value=o[a].REGION_ID;
+                    op1.innerHTML=o[a].REGION_NAME;
+                    v1.appendChild(op1);
+                }
+            }
+
+        })
+    }
+    function sel_shi(){
+        var sheng=$("#sheng").val();
+        $.ajax({
+            url:"{:U('sel_coun')}",
+            type:"post",
+            data:{"coun":sheng},
+            success:function(msg){
+                var o=eval(msg);
+                var v1=document.getElementById("qu");
+                v1.options.length=1;
+                for(a in o){
+                    var op1=document.createElement("option");
+                    op1.value=o[a].REGION_ID;
+                    op1.innerHTML=o[a].REGION_NAME;
+                    v1.appendChild(op1);
+                }
+            }
+
+        })
+    }
+    //三级联动 end
+</script>
+</html>
+

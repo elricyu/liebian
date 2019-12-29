@@ -1,0 +1,44 @@
+*{margin: 0;padding: 0}
+p,label{
+    margin: 0;
+    padding: 0;
+}
+a{text-decoration: none;}
+ul{list-style:none;margin: 0;padding: 0;}
+em,
+i{font-style: normal;font-weight: normal;}
+img {vertical-align: top;border: 0;margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {font-weight: 500;margin:0;padding:0;}
+*{margin: 0;padding:0;}
+input,a{outline:none;}
+.wrap {min-width: 320px; max-width: 640px; margin: 0 auto;}
+.fl{float:left;}
+.fr{float:right;}
+/*伪类清除浮动*/
+.fix{*zoom:1;}
+.fix:after{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}
+.sous{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sous .col-sm-1,.sous .col-sm-2{
+    padding-right: 0;
+}
+
+.test {
+    height: 100vh;
+    width: 810px;
+    position: absolute;
+    top: 0;
+    right: -810px;
+    background: #fff;
+    transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    overflow-y: scroll;
+}
+
+#myTabContent {
+    padding: 25px;
+}

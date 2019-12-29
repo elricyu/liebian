@@ -1,0 +1,103 @@
+/*table tbody tr:hover{background-color:#C8E8FB;}*/ 
+.head-left a:nth-of-type(4) li {
+    background: #ecebfd;
+    color: rgb(124, 113, 191);
+    box-shadow: 5px 5px 4px #dbdbdb;
+}
+
+.button{
+	width:100% ;
+	height: 50px;
+
+}
+.button-a{
+    width: 150px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    box-shadow: 2px 2px 4px #dbdbdb;
+    padding-left: 8px;
+    line-height: 30px;
+    font-size: 12px;
+}
+.button-i{
+    width: 130px;
+    height: 30px;
+    border-radius: 17px;
+    background: #7c73c4;
+    margin-top: 9px;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+    box-shadow: 5px 5px 4px #dbdbdb;
+    -webkit-box-shadow: 5px 5px 4px #dbdbdb;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.table-hover4{
+	box-shadow: 2px 2px 4px #dbdbdb;
+	background: #FFFFFF;
+	border-radius: 10px 10px 0 0;
+}
+.table-hover4 tbody tr td{border: 0;color: #666666;}
+.table th, .table td { 
+	text-align: center; 
+	height:38px;
+} 
+.td{position: relative;}
+.td-img1{height: 25px;}
+.td-img2{
+	width: 100px;
+	height: 100px;
+	display:none;
+	position: absolute;
+	z-index: 100;
+	left: 80px;
+	top: -10px;
+}
+.span{
+	width: 85px;
+	height: 20px;
+	display: block;
+	margin: auto;
+}
+.xiugai,.sanchu {
+	width: 40px;
+	height: 20px;
+	line-height: 20px;
+	background:#EDEDED ;
+	color: #999999;
+	display: block;
+	cursor:pointer;
+}
+.xiugai{border-radius: 8px 0 0 8px;}
+.sanchu{border-radius: 0 8px 8px 0;}
+
+.xiugai:hover {color: #FFFFFF;background:#00CCE4 ;}
+.sanchu:hover {color: #FFFFFF;background:#FF797C;}
+.inp {
+    width: 100px;
+    height: 24px;
+    padding: 0;    
+    margin-left: 36%;
+    border: 1px solid #999999;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+.bcxg {
+    width: 40px;
+    height: 20px;
+    line-height: 20px;    
+    margin-left: 10px;
+    margin-top: 2px;
+    background: #7C72C1;
+    color: #FFFFFF;
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+}

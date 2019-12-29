@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>查看盘点单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">		
+	<link href="css/layout.css" rel="stylesheet">
+	<link href="css/pd.css" rel="stylesheet">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../laydate/laydate.js"></script>
+	<script src="../layer/layer.js"></script>
+	<script src="js/chakanpd.js"></script> 
+	<script src="js/Paginator.js" ></script>	
+    <style type="text/css">
+    	html,body{height:100%;background:#EDEDED ;}
+		body{border: 0;}
+        .xuan{
+            margin-right: 20px;
+            font-size: 14px;
+            height: 38px;
+            border-color: #cccccc;
+            border-radius: 5px;
+        }
+        .table-hover tbody tr td {
+        	border: 0;
+        	text-align: left;
+		}
+		.table-hover1{
+			box-shadow: 2px 2px 4px #dbdbdb;
+			border-radius: 10px 10px 0 0;	
+			background: #FFFFFF;	
+		}
+		.table-hover1 input{border: 0;background: #FFFFFF;}
+		.datepicker{border: 0;background: #EDEDED;}
+        .form{
+        	width: 100%;
+        	padding-left: 20px;
+        	padding-right: 20px;        	
+        	padding-bottom: 20px;        	
+	    }
+        .required {
+            color: Red;
+            display: inline-block;
+            margin-right: 3px;
+        }
+        .form-control {
+            display: inline;
+            width: 70%;
+            height: 26px;
+            padding: 2px 12px;
+            
+        }
+		.but{
+			width: 100%;
+			text-align: center;						
+		}
+		.bt{
+			display: block;
+			width: 40px;
+			height: 25px;
+			font-size: 12px;
+			line-height: 25px;
+			border-radius:10px ;
+			background: #EDEDED;
+			text-align: center;
+		} 
+        .btn-tj{
+     		display: block;
+     	    width: 120px;
+		    height: 30px;
+		    border-radius: 17px;
+		    background: #FF797C;
+		    margin-left: 53px;
+		    margin-top: 6px;
+		    text-align: center;
+		    line-height: 30px;
+		    border: none;
+		    box-shadow: 1px 1px 4px #999;
+		    -webkit-box-shadow: 1px 1px 4px #999;
+		    cursor: pointer;
+		    color: #FFFFFF;
+		    font-size: 15px;
+		    font-weight: bold;
+		    margin:0 auto;
+         }        
+    </style>
+
+</head>
+
+<body>
+    <div id="good_listdiv" onclick="cancle();" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.2); z-index: 998;display: none;">
+        <div id="popupDiv" style="position: absolute; width: 90%; height: 90%; background-color: white; position: absolute; left: 5%; top: 3%;border-radius: 10px;">
+            <iframe id="list_good" frameborder="0" scrolling="no" src="goodslist.html" width="100%" height="100%" style="position: absolute;  border-radius: 10px;"></iframe>
+        </div>
+    </div> 
+        <div class="form" role="form">
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <td style="width: 10%;"><b>盘点日期:</b></td>
+                    <td style="width: 10%;">
+                    	<input class="datepicker" id="out_date"  disabled='disabled'/>
+                    </td>
+                    <td style="width: 10%;"><b>盘点人:</b></td>
+                    <td style="width: 70%;">
+                        <span id="user_name"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>备注：</label></td>
+                    <td colspan="7">
+                        <textarea name="notes" id="notes" cols="10" rows="1" style="width:100%;resize: none;border-radius:10px; background: #EDEDED;" disabled='disabled'></textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>          
+            <table class="table table-hover1" id="goodstable">
+                <thead>
+                <tr style="background: #E8E5FF;">
+                    <th style="border-radius: 10px 0px 0 0;">商品编号</th>
+                    <th>商品名称</th>
+                    <th>图片</th>
+                    <th>规格</th>
+                    <th>单位</th>
+                    <th>价格</th>
+                    <th>库存数量</th>
+                    <th>实盘数量</th>
+                    <th>损益数量</th>
+                    <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>          
+            <button type="submit" class="btn-tj" onclick ="return checkinfo()" >作废</button>
+        </div>
+
+
+</body>
+<script>
+
+</script>
+
+</html>
+

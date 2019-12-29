@@ -1,0 +1,34 @@
+.table-bordered {
+  border: 1px solid #e8e6fe;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1)
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+table {
+  background-color: transparent;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+.table>thead{
+  background: #e8e6fe;
+}
+.table-hover>tbody>tr:hover{background-color:#f2f2f2;}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  padding: 8px;
+  text-align: center;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+#app .el-popover{
+  min-width: 60px!important;
+}
